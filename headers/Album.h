@@ -9,8 +9,8 @@ private:
 
 public:
     Album(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& typeIllustration)
-        : Livre(code, auteur, titre, editeur, ISBN, "Album"), typeIllustration(typeIllustration) {}
+          const std::string& ISBN, const std::string& typeIllustration, Bibliotheque* BibliothequeOrigine)
+        : Livre(code, auteur, titre, editeur, ISBN, "Album", BibliothequeOrigine), typeIllustration(typeIllustration) {}
 
     void afficher() const override {
         Livre::afficher();

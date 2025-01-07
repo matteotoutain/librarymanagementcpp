@@ -9,8 +9,8 @@ private:
 
 public:
     RecueilPoesie(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                  const std::string& ISBN, const std::string& typeVers)
-        : Livre(code, auteur, titre, editeur, ISBN, "Poésie"), typeVers(typeVers) {}
+                  const std::string& ISBN, const std::string& typeVers, Bibliotheque* BibliothequeOrigine)
+        : Livre(code, auteur, titre, editeur, ISBN, "Poésie", BibliothequeOrigine), typeVers(typeVers) {}
 
     void afficher() const override {
         Livre::afficher();

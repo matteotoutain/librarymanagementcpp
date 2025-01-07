@@ -19,23 +19,28 @@ public:
         : nom(nom), prenom(prenom), adresse(adresse), numeroAdherent(numeroAdherent), nbLivresAutorises(nbLivresAutorises) {}
 
     void emprunterLivre(Livre& livre) {
-        if (livresEmpruntes.size() >= nbLivresAutorises) {
-            throw std::runtime_error("Nombre d'emprunts autorisé dépassé.");
+        if (livre.getEtat() != Libre) {
+            throw std::runtime_error("Le livre n'est pas disponible.");
         }
-        livre.emprunter();
+        if (livresEmpruntes.size() >= nbLivresAutorises) {
+            throw std::runtime_error("Limite d'emprunt atteinte.");
+        }
         livresEmpruntes.push_back(&livre);
+        livre.emprunter();
     }
 
     void rendreLivre(Livre& livre) {
+        // Parcours manuel pour trouver et supprimer le livre de la liste des empruntés
         for (auto it = livresEmpruntes.begin(); it != livresEmpruntes.end(); ++it) {
-            if (*it == &livre) {
-                livre.rendre();
-                livresEmpruntes.erase(it);
+            if (*it == &livre) {  // Compare les pointeurs
+                livresEmpruntes.erase(it);  // Retire le livre de la liste
+                livre.rendre();  // Change le statut du livre à "Libre"
                 return;
             }
         }
-        throw std::runtime_error("Ce livre n'a pas été emprunté.");
+        throw std::runtime_error("Livre non trouvé dans la liste des empruntés.");
     }
+
 
     void afficherLivres() const {
         for (const auto& livre : livresEmpruntes) {

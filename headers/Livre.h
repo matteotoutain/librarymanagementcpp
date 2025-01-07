@@ -4,10 +4,12 @@
 #include <string>
 #include <iostream>
 
+// Déclaration anticipée de la classe Bibliotheque
+class Bibliotheque;
+
 enum Etat {
     Libre,
-    Emprunte,
-    Prete
+    Emprunte
 };
 
 class Livre {
@@ -18,19 +20,33 @@ protected:
     std::string editeur;
     std::string ISBN;
     std::string typepublic;
+    int pret;
     Etat etat;
+    Bibliotheque* BibliothequeOrigine;
 
 public:
+    // Constructeur prenant l'ID de la bibliothèque d'origine
     Livre(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& typepublic)
-        : code(code), auteur(auteur), titre(titre), editeur(editeur), ISBN(ISBN), typepublic(typepublic), etat(Libre) {}
+          const std::string& ISBN, const std::string& typepublic, Bibliotheque* BibliothequeOrigine)
+        : code(code), auteur(auteur), titre(titre), editeur(editeur), ISBN(ISBN), typepublic(typepublic),
+          etat(Libre), BibliothequeOrigine(BibliothequeOrigine) {}
 
     virtual ~Livre() {}
 
     virtual void afficher() const {
-        std::cout << "Code: " << code << "\nTitre: " << titre << "\nAuteur: " << auteur << "\nEtat: "
-                  << (etat == Libre ? "Libre" : (etat == Emprunte ? "Emprunté" : "Prêté")) << std::endl;
+        std::cout << "Code       : " << code << std::endl;
+        std::cout << "Titre      : " << titre << std::endl;
+        std::cout << "Auteur     : " << auteur << std::endl;
+        std::cout << "Etat       : "
+                  << (etat == Libre ? "Libre"
+                      : (etat == Emprunte ? "Emprunté" : "Prêté"))
+        << std::endl;
+        std::cout << "Prété      : "
+                  << (pret == 1 ? "Oui"
+                      : (pret == 0 ? "Non" : "Erreur"))
+                  << std::endl;
     }
+
 
     void emprunter() {
         if (etat == Libre) {
@@ -49,7 +65,12 @@ public:
     }
 
     const std::string& getISBN() const { return ISBN; }
+    int getPret() const { return pret; }
+    void setPret(int i) { pret = i; }
     Etat getEtat() const { return etat; }
+    const std::string& getCode() const { return code; }
+
+    Bibliotheque* getBibliothequeOrigine() const { return BibliothequeOrigine; }  // Méthode pour obtenir l'ID de la bibliothèque d'origine
 };
 
 #endif

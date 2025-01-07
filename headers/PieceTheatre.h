@@ -9,8 +9,8 @@ private:
 
 public:
     PieceTheatre(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                 const std::string& ISBN, const std::string& siecle)
-        : Livre(code, auteur, titre, editeur, ISBN, "Théâtre"), siecle(siecle) {}
+                 const std::string& ISBN, const std::string& siecle, Bibliotheque* BibliothequeOrigine)
+        : Livre(code, auteur, titre, editeur, ISBN, "Théâtre", BibliothequeOrigine), siecle(siecle) {}
 
     void afficher() const override {
         Livre::afficher();
