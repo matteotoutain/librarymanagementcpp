@@ -8,14 +8,10 @@ private:
     std::string genre;
 
 public:
-    Roman(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& genre, Bibliotheque* BibliothequeOrigine)
-        : Livre(code, auteur, titre, editeur, ISBN, "Littérature", BibliothequeOrigine), genre(genre) {}
+    Roman(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
+          const std::string& ISBN, const std::string& genre, Bibliotheque* BibliothequeOrigine);
 
-    void afficher() const override {
-        Livre::afficher();
-        std::cout << "Genre: " << genre << std::endl;
-    }
+    void afficher() const override;
 };
 
 #endif

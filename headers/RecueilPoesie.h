@@ -8,14 +8,10 @@ private:
     std::string typeVers;
 
 public:
-    RecueilPoesie(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                  const std::string& ISBN, const std::string& typeVers, Bibliotheque* BibliothequeOrigine)
-        : Livre(code, auteur, titre, editeur, ISBN, "Poésie", BibliothequeOrigine), typeVers(typeVers) {}
+    RecueilPoesie(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
+                  const std::string& ISBN, const std::string& typeVers, Bibliotheque* BibliothequeOrigine);
 
-    void afficher() const override {
-        Livre::afficher();
-        std::cout << "Type de vers: " << typeVers << std::endl;
-    }
+    void afficher() const override;
 };
 
 #endif

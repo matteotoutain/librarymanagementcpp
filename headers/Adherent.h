@@ -2,8 +2,9 @@
 #define ADHERENT_H
 
 #include "Livre.h"
+#include "Bibliotheque.h"  // Inclure la bibliothèque pour avoir accès à la classe Bibliotheque
 #include <vector>
-#include <stdexcept>
+#include <string>
 
 class Adherent {
 private:
@@ -13,40 +14,22 @@ private:
     int numeroAdherent;
     int nbLivresAutorises;
     std::vector<Livre*> livresEmpruntes;
+    Bibliotheque* bibliotheque;  // Pointeur vers la bibliothèque de l'adhérent
 
 public:
-    Adherent(const std::string& nom, const std::string& prenom, const std::string& adresse, int numeroAdherent, int nbLivresAutorises)
-        : nom(nom), prenom(prenom), adresse(adresse), numeroAdherent(numeroAdherent), nbLivresAutorises(nbLivresAutorises) {}
+    Adherent(const std::string& nom, const std::string& prenom, const std::string& adresse,
+             int numeroAdherent, int nbLivresAutorises, Bibliotheque* bibliotheque);
 
-    void emprunterLivre(Livre& livre) {
-        if (livre.getEtat() != Libre) {
-            throw std::runtime_error("Le livre n'est pas disponible.");
-        }
-        if (livresEmpruntes.size() >= nbLivresAutorises) {
-            throw std::runtime_error("Limite d'emprunt atteinte.");
-        }
-        livresEmpruntes.push_back(&livre);
-        livre.emprunter();
-    }
+    void emprunterLivre(Livre& livre);
+    void rendreLivre(Livre& livre);
+    void afficherLivres() const;
+    int getId() const;
+    std::string getNom() const;
+    std::string getPrenom() const;
+    Bibliotheque* getBibliotheque() const;  // Accesseur pour la bibliothèque
+    std::vector<Livre *> getLivresEmpruntes() const ;
 
-    void rendreLivre(Livre& livre) {
-        // Parcours manuel pour trouver et supprimer le livre de la liste des empruntés
-        for (auto it = livresEmpruntes.begin(); it != livresEmpruntes.end(); ++it) {
-            if (*it == &livre) {  // Compare les pointeurs
-                livresEmpruntes.erase(it);  // Retire le livre de la liste
-                livre.rendre();  // Change le statut du livre à "Libre"
-                return;
-            }
-        }
-        throw std::runtime_error("Livre non trouvé dans la liste des empruntés.");
-    }
-
-
-    void afficherLivres() const {
-        for (const auto& livre : livresEmpruntes) {
-            livre->afficher();
-        }
-    }
+    ~Adherent() = default;
 };
 
 #endif

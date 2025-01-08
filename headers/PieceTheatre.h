@@ -8,14 +8,10 @@ private:
     std::string siecle;
 
 public:
-    PieceTheatre(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                 const std::string& ISBN, const std::string& siecle, Bibliotheque* BibliothequeOrigine)
-        : Livre(code, auteur, titre, editeur, ISBN, "Théâtre", BibliothequeOrigine), siecle(siecle) {}
+    PieceTheatre(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
+                 const std::string& ISBN, const std::string& siecle, Bibliotheque* BibliothequeOrigine);
 
-    void afficher() const override {
-        Livre::afficher();
-        std::cout << "Siècle: " << siecle << std::endl;
-    }
+    void afficher() const override;
 };
 
 #endif
