@@ -33,3 +33,10 @@ La méthode supprimerLivre() permet de supprimer un livre de la bibliothèque en
 ### Une bibliothèque peut rendre les livres prêtés qui ne sont pas empruntés
 
 Cela peut être implémenté par une méthode rendreLivresPretes() dans la classe Bibliotheque qui parcourt la liste des livres et rend ceux qui sont prêtés mais non empruntés.
+
+### Relations
+
+Une Bibliothèque contient plusieurs Livres (relation de composition).
+Un Livre est associé à une Bibliothèque d'origine.
+Un Adherent peut emprunter plusieurs Livres (relation d'agrégation).
+Les sous-classes de Livre héritent de la classe abstraite Livre.
