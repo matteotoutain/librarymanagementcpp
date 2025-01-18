@@ -27,7 +27,6 @@ public:
     Livre* trouverLivre(const string& ISBN);
     void echangerLivre(Bibliotheque& autreBibliotheque, const string& ISBN);
     void supprimerLivre(int code);
-    void rendreLivresPretes();
     string getNom() const;
     const list<Livre*>& getLivres() const;
 

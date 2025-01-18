@@ -80,27 +80,6 @@ void Bibliotheque::supprimerLivre(int code) {
 
 
 
-void Bibliotheque::rendreLivresPretes() {
-    auto it = livres.begin();
-    while (it != livres.end()) {
-        Livre* livre = *it;
-
-        if (livre->getPret() == 1 and livre->getEtat() == Libre) {
-            Bibliotheque* bibliothequeOrigine = livre->getBibliothequeOrigine();
-
-            if (bibliothequeOrigine) {
-                bibliothequeOrigine->ajouterLivre(livre);
-            }
-
-            livre->setPret(0);
-
-            it = livres.erase(it);
-        } else {
-            ++it;
-        }
-    }
-}
-
 int Bibliotheque::getId() const {
     return id;
 }
