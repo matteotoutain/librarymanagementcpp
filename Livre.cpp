@@ -1,33 +1,35 @@
 #include "headers\Livre.h"
 
-Livre::Livre(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-             const std::string& ISBN, const std::string& typepublic, Bibliotheque* BibliothequeOrigine)
+using namespace std;
+
+Livre::Livre(const int code, const string& auteur, const string& titre, const string& editeur,
+             const string& ISBN, const string& typepublic, Bibliotheque* BibliothequeOrigine)
     : code(code), auteur(auteur), titre(titre), editeur(editeur), ISBN(ISBN), typepublic(typepublic),
       pret(0), etat(Libre), BibliothequeOrigine(BibliothequeOrigine) {}
 
 Livre::~Livre() {}
 
-std::string Livre::getTitre() const { return titre; }
+string Livre::getTitre() const { return titre; }
 
 void Livre::afficher() const {
-    std::cout << "Code       : " << code << std::endl;
-    std::cout << "Titre      : " << titre << std::endl;
-    std::cout << "Auteur     : " << auteur << std::endl;
-    std::cout << "Etat       : "
+    cout << "Code       : " << code << endl;
+    cout << "Titre      : " << titre << endl;
+    cout << "Auteur     : " << auteur << endl;
+    cout << "Etat       : "
               << (etat == Libre ? "Libre"
-                  : (etat == Emprunte ? "Emprunté" : "Prêté"))
-              << std::endl;
-    std::cout << "Prété      : "
+                  : (etat == Emprunte ? "Emprunté" : "N/A"))
+              << endl;
+    cout << "Prété      : "
               << (pret == 1 ? "Oui"
-                  : (pret == 0 ? "Non" : "Erreur"))
-              << std::endl;
+                  : (pret == 0 ? "Non" : "N/A"))
+              << endl;
 }
 
 void Livre::emprunter() {
     if (etat == Libre) {
         etat = Emprunte;
     } else {
-        throw std::runtime_error("Le livre n'est pas disponible pour emprunt.");
+        throw runtime_error("Le livre n'est pas disponible pour emprunt.");
     }
 }
 
@@ -35,11 +37,11 @@ void Livre::rendre() {
     if (etat == Emprunte) {
         etat = Libre;
     } else {
-        throw std::runtime_error("Le livre n'a pas été emprunté.");
+        throw runtime_error("Le livre n'a pas été emprunté.");
     }
 }
 
-const std::string& Livre::getISBN() const {
+const string& Livre::getISBN() const {
     return ISBN;
 }
 
@@ -61,4 +63,8 @@ const int Livre::getCode() const {
 
 Bibliotheque* Livre::getBibliothequeOrigine() const {
     return BibliothequeOrigine;
+}
+
+string Livre::getCategorie() const {
+    return "N/A";
 }

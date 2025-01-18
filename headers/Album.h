@@ -5,13 +5,14 @@
 
 class Album : public Livre {
 private:
-    std::string typeIllustration;
+    string typeIllustration;
 
 public:
-    Album(int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& typeIllustration, Bibliotheque* BibliothequeOrigine);
+    Album(int code, const string& auteur, const string& titre, const string& editeur,
+          const string& ISBN, const string& typePublic, const string& typeIllustration, Bibliotheque* BibliothequeOrigine);
 
     void afficher() const override;
+    virtual string getCategorie() const override;
 };
 
 #endif

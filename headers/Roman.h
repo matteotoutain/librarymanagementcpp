@@ -5,13 +5,15 @@
 
 class Roman : public Livre {
 private:
-    std::string genre;
+    string genre;
 
 public:
-    Roman(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& genre, Bibliotheque* BibliothequeOrigine);
+    Roman(int code, const string& auteur, const string& titre, const string& editeur,
+          const string& ISBN, const string& typePublic, const string& genre, Bibliotheque* BibliothequeOrigine);
 
     void afficher() const override;
+
+    virtual string getCategorie() const override;
 };
 
 #endif

@@ -9,14 +9,14 @@
 #include "Adherent.cpp"
 
 int main() {
-    Bibliotheque b1(1, "Bibliothèque de Paris", "123 Rue de Paris");
-    Bibliotheque b2(2, "Bibliothèque de Lyon", "456 Rue de Lyon");
+    Bibliotheque b1(1, "Bibliothèque Centrale", "12 rue Victor Hugo");
+    Bibliotheque b2(2, "Bibliothèque de la Ville", "38 avenue de la Liberté");
 
-    PieceTheatre piece("001", "Molière", "Le Malade Imaginaire", "Gallimard", "9782070360027", "17e", &b1);
-    RecueilPoesie recueil("002", "Charles Baudelaire", "Les Fleurs du Mal", "Hachette", "9782012789123", "Alexandrins", &b1);
-    Roman roman("003", "J.K. Rowling", "Harry Potter et la Coupe de Feu", "Gallimard Jeunesse", "9782070584621", "Fantastique", &b2);
-    BandeDessinee bd("004", "Hergé", "Tintin et le Lotus Bleu", "Casterman", "9782203001078", "Jeunesse", "Hergé", &b1);
-    Album album("005", "Collectif", "Atlas des Animaux", "Nathan", "9782092789123", "Naturaliste", &b2);
+    PieceTheatre piece(1, "Molière", "Le Malade Imaginaire", "Gallimard", "9782070360027", "Tout public", "17e", &b1);
+    RecueilPoesie recueil(2, "Charles Baudelaire", "Les Fleurs du Mal", "Hachette", "9782012789123", "Adulte", "Vers", &b1);
+    Roman roman(3, "J.K. Rowling", "Harry Potter et la Coupe de Feu", "Gallimard Jeunesse", "9782070584621", "Ados", "Fantastique", &b2);
+    BandeDessinee bd(4, "Hergé", "Tintin et le Lotus Bleu", "Casterman", "9782203001078", "Jeunesse", "Hergé", &b1);
+    Album album(5, "Collectif", "Atlas des Animaux", "Nathan", "9782092789123", "Tout public", "Photos", &b2);
 
     b1.ajouterLivre(&piece);
     b1.ajouterLivre(&recueil);
@@ -24,8 +24,8 @@ int main() {
     b2.ajouterLivre(&roman);
     b2.ajouterLivre(&album);
 
-    Adherent adherent1("Dupont", "Jean", "10 Rue de Paris", 1, 2);
-    Adherent adherent2("Durand", "Marie", "15 Rue de Lyon", 2, 3);
+    Adherent adherent1("Richard", "Timothée", "3 Avenue de la libération", 1, 2, &b1);
+    Adherent adherent2("Toutain", "Matteo", "12 Rue du Coq", 2, 3, &b2);
 
     std::cout << "=== Livres dans la Bibliothèque de Paris ===" << std::endl;
     b1.afficherLivres();
@@ -76,7 +76,7 @@ int main() {
 
     try {
         std::cout << "\nSuppression du livre 'Tintin et le Lotus Bleu' de la Bibliothèque de Paris..." << std::endl;
-        b1.supprimerLivre("004");
+        b1.supprimerLivre(4);
         std::cout << "Suppression réussie." << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Erreur : " << e.what() << std::endl;

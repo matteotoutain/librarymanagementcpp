@@ -6,16 +6,17 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
+using namespace std;
 
 class Bibliotheque {
 private:
-    std::string nom;
-    std::string adresse;
-    std::list<Livre*> livres;
+    string nom;
+    string adresse;
+    list<Livre*> livres;
     int id;
 
 public:
-    Bibliotheque(int id, const std::string& nom, const std::string& adresse);
+    Bibliotheque(int id, const string& nom, const string& adresse);
     ~Bibliotheque();
 
     void ajouterLivre(Livre* livre);
@@ -23,12 +24,12 @@ public:
 
     Livre *getLivre(int Code);
 
-    Livre* trouverLivre(const std::string& ISBN);
-    void echangerLivre(Bibliotheque& autreBibliotheque, const std::string& ISBN);
+    Livre* trouverLivre(const string& ISBN);
+    void echangerLivre(Bibliotheque& autreBibliotheque, const string& ISBN);
     void supprimerLivre(int code);
     void rendreLivresPretes();
-    std::string getNom() const;
-    const std::list<Livre*>& getLivres() const;
+    string getNom() const;
+    const list<Livre*>& getLivres() const;
 
     int getId() const;
 };

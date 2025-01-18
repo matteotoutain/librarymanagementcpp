@@ -1,11 +1,15 @@
 #include "headers\Album.h"
 #include <iostream>
 
-Album::Album(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-             const std::string& ISBN, const std::string& typeIllustration, Bibliotheque* BibliothequeOrigine)
-    : Livre(code, auteur, titre, editeur, ISBN, "Album", BibliothequeOrigine), typeIllustration(typeIllustration) {}
+Album::Album(int code, const string& auteur, const string& titre, const string& editeur,
+             const string& ISBN, const string& typePublic, const string& typeIllustration, Bibliotheque* BibliothequeOrigine)
+    : Livre(code, auteur, titre, editeur, ISBN, typePublic, BibliothequeOrigine), typeIllustration(typeIllustration) {}
 
 void Album::afficher() const {
     Livre::afficher();
-    std::cout << "Type d'illustration: " << typeIllustration << std::endl;
+    cout << "Type d'illustration: " << typeIllustration << endl;
+}
+
+string Album::getCategorie() const {
+    return "Album";
 }

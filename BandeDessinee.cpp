@@ -1,11 +1,15 @@
 #include "headers\BandeDessinee.h"
 #include <iostream>
 
-BandeDessinee::BandeDessinee(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                             const std::string& ISBN, const std::string& typepublic, const std::string& dessinateur, Bibliotheque* BibliothequeOrigine)
+BandeDessinee::BandeDessinee(int code, const string& auteur, const string& titre, const string& editeur,
+                             const string& ISBN, const string& typepublic, const string& dessinateur, Bibliotheque* BibliothequeOrigine)
     : Livre(code, auteur, titre, editeur, ISBN, typepublic, BibliothequeOrigine), dessinateur(dessinateur) {}
 
 void BandeDessinee::afficher() const {
     Livre::afficher();
-    std::cout << "Dessinateur: " << dessinateur << std::endl;
+    cout << "Dessinateur: " << dessinateur << endl;
+}
+
+string BandeDessinee::getCategorie() const {
+    return "BandeDessinee";
 }

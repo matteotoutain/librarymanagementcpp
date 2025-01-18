@@ -1,11 +1,16 @@
 #include "headers\Roman.h"
 #include <iostream>
 
-Roman::Roman(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-             const std::string& ISBN, const std::string& genre, Bibliotheque* BibliothequeOrigine)
-    : Livre(code, auteur, titre, editeur, ISBN, "Littérature", BibliothequeOrigine), genre(genre) {}
+Roman::Roman(int code, const string& auteur, const string& titre, const string& editeur,
+             const string& ISBN, const string& typePublic, const string& genre, Bibliotheque* BibliothequeOrigine)
+    : Livre(code, auteur, titre, editeur, ISBN, typePublic, BibliothequeOrigine), genre(genre) {}
 
 void Roman::afficher() const {
     Livre::afficher();
-    std::cout << "Genre: " << genre << std::endl;
+    cout << "Genre      : " << genre << endl;
+}
+
+
+string Roman::getCategorie() const {
+    return "Roman";
 }

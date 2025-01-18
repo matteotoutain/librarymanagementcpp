@@ -5,13 +5,15 @@
 
 class RecueilPoesie : public Livre {
 private:
-    std::string typeVers;
+    string typeVers;
 
 public:
-    RecueilPoesie(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                  const std::string& ISBN, const std::string& typeVers, Bibliotheque* BibliothequeOrigine);
+    RecueilPoesie(int code, const string& auteur, const string& titre, const string& editeur,
+                  const string& ISBN, const string& typePublic, const string& typeVers, Bibliotheque* BibliothequeOrigine);
 
     void afficher() const override;
+
+    virtual string getCategorie() const override;
 };
 
 #endif

@@ -5,13 +5,15 @@
 
 class PieceTheatre : public Livre {
 private:
-    std::string siecle;
+    string siecle;
 
 public:
-    PieceTheatre(const int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                 const std::string& ISBN, const std::string& siecle, Bibliotheque* BibliothequeOrigine);
+    PieceTheatre(int code, const string& auteur, const string& titre, const string& editeur,
+                 const string& ISBN, const string& typePublic, const string& siecle, Bibliotheque* BibliothequeOrigine);
 
     void afficher() const override;
+
+    virtual string getCategorie() const override;
 };
 
 #endif

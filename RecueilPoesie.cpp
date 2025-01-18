@@ -1,15 +1,19 @@
 #include "headers\RecueilPoesie.h"
 #include <iostream>
 
-RecueilPoesie::RecueilPoesie(const std::string& code,
-                             const std::string& auteur,
-                             const std::string& titre,
-                             const std::string& editeur,
-                             const std::string& ISBN,
-                             const std::string& typeVers,
-                             Bibliotheque* BibliothequeOrigine) : Livre(code, auteur, titre, editeur, ISBN, "Poésie", BibliothequeOrigine), typeVers(typeVers) {}
+RecueilPoesie::RecueilPoesie(int code,
+                             const string& auteur,
+                             const string& titre,
+                             const string& editeur,
+                             const string& ISBN,
+                             const string& typePublic,
+                             const string& typeVers,
+                             Bibliotheque* BibliothequeOrigine) : Livre(code, auteur, titre, editeur, ISBN, typePublic, BibliothequeOrigine), typeVers(typeVers) {}
 
 void RecueilPoesie::afficher() const {
     Livre::afficher();
-    std::cout << "Type de vers: " << typeVers << std::endl;
+    cout << "Type de vers: " << typeVers << endl;
+}
+string RecueilPoesie::getCategorie() const {
+    return "RecueilPoesie";
 }

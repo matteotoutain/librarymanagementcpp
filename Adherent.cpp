@@ -1,19 +1,21 @@
 #include "headers/Adherent.h"
 #include <iostream>
 
-Adherent::Adherent(const std::string& nom, const std::string& prenom, const std::string& adresse,
+using namespace std;
+
+Adherent::Adherent(const string& nom, const string& prenom, const string& adresse,
                    int numeroAdherent, int nbLivresAutorises, Bibliotheque* bibliotheque)
     : nom(nom), prenom(prenom), adresse(adresse), numeroAdherent(numeroAdherent),
       nbLivresAutorises(nbLivresAutorises), bibliotheque(bibliotheque) {}
 
-std::vector<Livre *> Adherent::getLivresEmpruntes() const { return livresEmpruntes; }
+vector<Livre *> Adherent::getLivresEmpruntes() const { return livresEmpruntes; }
 
 void Adherent::emprunterLivre(Livre& livre) {
     if (livre.getEtat() != Libre) {
-        throw std::runtime_error("Le livre n'est pas disponible.");
+        throw runtime_error("Le livre n'est pas disponible.");
     }
     if (livresEmpruntes.size() >= nbLivresAutorises) {
-        throw std::runtime_error("Limite d'emprunt atteinte.");
+        throw runtime_error("Limite d'emprunt atteinte.");
     }
     livresEmpruntes.push_back(&livre);
     livre.emprunter();
@@ -27,7 +29,7 @@ void Adherent::rendreLivre(Livre& livre) {
             return;
         }
     }
-    throw std::runtime_error("Livre non trouvé dans la liste des empruntés.");
+    throw runtime_error("Livre non trouvé dans la liste des empruntés.");
 }
 
 void Adherent::afficherLivres() const {
@@ -39,11 +41,11 @@ void Adherent::afficherLivres() const {
 int Adherent::getId() const {
     return numeroAdherent;
 }
-std::string Adherent::getNom() const {
+string Adherent::getNom() const {
     return nom;
 }
 
-std::string Adherent::getPrenom() const {
+string Adherent::getPrenom() const {
     return prenom;
 }
 

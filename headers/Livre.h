@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 class Bibliotheque;
 
 enum Etat {
@@ -14,18 +16,18 @@ enum Etat {
 class Livre {
 protected:
     int code;
-    std::string auteur;
-    std::string titre;
-    std::string editeur;
-    std::string ISBN;
-    std::string typepublic;
+    string auteur;
+    string titre;
+    string editeur;
+    string ISBN;
+    string typepublic;
     int pret;
     Etat etat;
     Bibliotheque* BibliothequeOrigine;
 
 public:
-    Livre(int code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-          const std::string& ISBN, const std::string& typepublic, Bibliotheque* BibliothequeOrigine);
+    Livre(int code, const string& auteur, const string& titre, const string& editeur,
+          const string& ISBN, const string& typepublic, Bibliotheque* BibliothequeOrigine);
 
     virtual ~Livre();
 
@@ -33,14 +35,16 @@ public:
     void emprunter();
     void rendre();
 
-    std::string getTitre() const;
+    string getTitre() const;
 
-    const std::string& getISBN() const;
+    const string& getISBN() const;
     int getPret() const;
     void setPret(int i);
     Etat getEtat() const;
     const int getCode() const;
     Bibliotheque* getBibliothequeOrigine() const;
+
+    virtual string getCategorie() const;
 };
 
 #endif

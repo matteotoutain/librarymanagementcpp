@@ -8,26 +8,26 @@
 
 class Adherent {
 private:
-    std::string nom;
-    std::string prenom;
-    std::string adresse;
+    string nom;
+    string prenom;
+    string adresse;
     int numeroAdherent;
     int nbLivresAutorises;
-    std::vector<Livre*> livresEmpruntes;
+    vector<Livre*> livresEmpruntes;
     Bibliotheque* bibliotheque;  // Pointeur vers la bibliothèque de l'adhérent
 
 public:
-    Adherent(const std::string& nom, const std::string& prenom, const std::string& adresse,
+    Adherent(const string& nom, const string& prenom, const string& adresse,
              int numeroAdherent, int nbLivresAutorises, Bibliotheque* bibliotheque);
 
     void emprunterLivre(Livre& livre);
     void rendreLivre(Livre& livre);
     void afficherLivres() const;
     int getId() const;
-    std::string getNom() const;
-    std::string getPrenom() const;
+    string getNom() const;
+    string getPrenom() const;
     Bibliotheque* getBibliotheque() const;  // Accesseur pour la bibliothèque
-    std::vector<Livre *> getLivresEmpruntes() const ;
+    vector<Livre *> getLivresEmpruntes() const ;
 
     ~Adherent() = default;
 };

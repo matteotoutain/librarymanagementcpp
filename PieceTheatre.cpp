@@ -1,11 +1,17 @@
 #include "headers\PieceTheatre.h"
 #include <iostream>
 
-PieceTheatre::PieceTheatre(const std::string& code, const std::string& auteur, const std::string& titre, const std::string& editeur,
-                           const std::string& ISBN, const std::string& siecle, Bibliotheque* BibliothequeOrigine)
-    : Livre(code, auteur, titre, editeur, ISBN, "Théâtre", BibliothequeOrigine), siecle(siecle) {}
+PieceTheatre::PieceTheatre(int code, const string& auteur, const string& titre, const string& editeur,
+                           const string& ISBN, const string& typePublic, const string& siecle, Bibliotheque* BibliothequeOrigine)
+    : Livre(code, auteur, titre, editeur, ISBN, typePublic, BibliothequeOrigine), siecle(siecle) {}
 
 void PieceTheatre::afficher() const {
     Livre::afficher();
-    std::cout << "Siècle: " << siecle << std::endl;
+    cout << "Siècle     : " << siecle << endl;
 }
+
+
+string PieceTheatre::getCategorie() const {
+    return "PieceTheatre";
+}
+
