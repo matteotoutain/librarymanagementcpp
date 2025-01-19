@@ -1,5 +1,10 @@
 # librarymanagementcpp
 
+## Versions implémentées :
+
+### main_v1.cpp correspond à la programmation sans interface utilisateur
+### main_v2.cpp correspond à la programmation avec interface utilisateur
+
 ## Fonctionnalités implémentées :
 
 ### Afficher tous les livres ou par catégorie dans une bibliothèque
