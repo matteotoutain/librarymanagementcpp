@@ -12,7 +12,7 @@ public:
           const string& ISBN, const string& typePublic, const string& typeIllustration, Bibliotheque* BibliothequeOrigine);
 
     void afficher() const override;
-    virtual string getCategorie() const override;
+    string getCategorie() const override;
 };
 
 #endif

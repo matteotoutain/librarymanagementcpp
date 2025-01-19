@@ -195,52 +195,53 @@ int main() {
 
     // Création de livres
     Roman livre1(1, "J.K. Rowling", "Harry Potter", "Gallimard", "9782070620751", "Ados", "SF", &b1);
-    b1.ajouterLivre(&livre1);
+    b1 += &livre1;
 
     Roman livre2(2, "George Orwell", "1984", "Seuil", "9782266210514", "Adulte", "Roman d'anticipation", &b1);
-    b1.ajouterLivre(&livre2);
+    b1 += &livre2;
 
     BandeDessinee livre3(3, "Hergé", "Tintin au Tibet", "Casterman", "9782203001190", "Tout public", "Hergé", &b1);
-    b1.ajouterLivre(&livre3);
+    b1 += &livre3;
 
     PieceTheatre livre4(4, "Jean Racine", "Phèdre", "Pocket", "9782266226670", "Tout public", "17ème", &b2);
-    b2.ajouterLivre(&livre4);
+    b2 += &livre4;
 
     RecueilPoesie livre5(5, "Charles Baudelaire", "Les Fleurs du mal", "Gallimard", "9782266226645", "Tout public", "Vers", &b2);
-    b2.ajouterLivre(&livre5);
+    b2 += &livre5;
 
     Album livre6(6, "Thomas Pesquet", "Terre(s)", "Michel Lafon", "9782266226675", "Tout public", "Photos", &b2);
-    b2.ajouterLivre(&livre6);
+    b2 += &livre6;
 
     Roman livre7(7, "Victor Hugo", "Les Misérables", "Librairie Hachette", "9782010001234", "Adulte", "Drame historique", &b2);
-    b2.ajouterLivre(&livre7);
+    b2 += &livre7;
 
     Roman livre8(8, "Mary Shelley", "Frankenstein", "Penguin Classics", "9780141439471", "Adulte", "Horreur", &b3);
-    b3.ajouterLivre(&livre8);
+    b3 += &livre8;
 
     BandeDessinee livre9(9, "René Goscinny", "Astérix le Gaulois", "Dargaud", "9782012101234", "Tout public", "Uderzo", &b3);
-    b3.ajouterLivre(&livre9);
+    b3 += &livre9;
 
     BandeDessinee livre10(10, "René Goscinny", "Lucky Luke: La diligence", "Dupuis", "9782800172345", "Tout public", "Morris", &b1);
-    b1.ajouterLivre(&livre10);
+    b1 += &livre10;
 
     PieceTheatre livre11(11, "Molière", "L'Avare", "Flammarion", "9782080701213", "Tout public", "17ème", &b1);
-    b1.ajouterLivre(&livre11);
+    b1 += &livre11;
 
     PieceTheatre livre12(12, "William Shakespeare", "Hamlet", "Oxford University Press", "9780192839283", "Adulte", "17ème", &b1);
-    b1.ajouterLivre(&livre12);
+    b1 += &livre12;
 
     RecueilPoesie livre13(13, "Paul Verlaine", "Romances sans paroles", "Charpentier", "9782266226682", "Tout public", "Vers", &b1);
-    b1.ajouterLivre(&livre13);
+    b1 += &livre13;
 
     RecueilPoesie livre14(14, "Arthur Rimbaud", "Une saison en enfer", "Gallimard", "9782266226699", "Adulte", "Prose", &b3);
-    b3.ajouterLivre(&livre14);
+    b3 += &livre14;
 
     Album livre15(15, "Anne Geddes", "Little Blessings", "Sourcebooks", "9781402209515", "Tout public", "Photos", &b1);
-    b1.ajouterLivre(&livre15);
+    b1 += &livre15;
 
     Album livre16(16, "Sebastião Salgado", "Genesis", "Taschen", "9783836538725", "Tout public", "Photos", &b3);
-    b3.ajouterLivre(&livre16);
+    b3 += &livre16;
+
 
 
     // Création des adhérents

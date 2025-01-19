@@ -72,7 +72,7 @@ void Bibliotheque::supprimerLivre(int code) {
 
             (*it)->~Livre();
 
-            break;  // Sort de la boucle après la suppression
+            break;
         }
     }
     cout << "Livre supprimé avec succès." << endl;
@@ -82,4 +82,9 @@ void Bibliotheque::supprimerLivre(int code) {
 
 int Bibliotheque::getId() const {
     return id;
+}
+
+Bibliotheque& Bibliotheque::operator+=(Livre* livre) {
+    livres.push_back(livre);
+    return *this;
 }

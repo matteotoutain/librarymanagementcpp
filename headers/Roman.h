@@ -13,7 +13,7 @@ public:
 
     void afficher() const override;
 
-    virtual string getCategorie() const override;
+    string getCategorie() const override;
 };
 
 #endif

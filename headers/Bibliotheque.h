@@ -31,6 +31,8 @@ public:
     const list<Livre*>& getLivres() const;
 
     int getId() const;
+
+    Bibliotheque& operator+=(Livre* livre);
 };
 
 #endif
