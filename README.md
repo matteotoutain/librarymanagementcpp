@@ -32,7 +32,7 @@ La méthode ajouterLivre() permet à une bibliothèque d'ajouter un nouveau livr
 La méthode supprimerLivre() permet de supprimer un livre de la bibliothèque en fonction de son code.
 ### Une bibliothèque peut rendre les livres prêtés qui ne sont pas empruntés
 
-Cela peut être implémenté par une méthode rendreLivresPretes() dans la classe Bibliotheque qui parcourt la liste des livres et rend ceux qui sont prêtés mais non empruntés.
+Se fait par la même méthode qu'en emprunt un livre à une autre bibliothèque.
 
 ### Relations
 
