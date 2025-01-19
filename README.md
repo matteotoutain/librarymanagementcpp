@@ -4,7 +4,7 @@
 
 ### Afficher tous les livres ou par catégorie dans une bibliothèque
 
-La bibliothèque peut afficher tous ses livres avec la méthode afficherLivres(). Elle peut également afficher les livres par catégorie avec un filtrage spécifique (par exemple, par type de livre).
+La bibliothèque peut afficher tous ses livres avec la méthode afficherLivres(). Elle peut également afficher les livres par catégorie avec un filtrage spécifique.
 
 ### Un adhérent peut emprunter un livre en donnant son code
 
